@@ -176,8 +176,16 @@ def getEvents(service, allowed_calendars_ids: List[str], max_results: int, today
             location = None
             if 'location' in event:
                 location = event['location']
+            else:
+                location = 'Unknown'
+            if 'summary' in event:
+                summary = event['summary']
+            elif event.get('visibility') == 'private':
+                summary = 'Busy'
+            else:
+                raise KeyError('Summary missing from event %s' % event)
 
-            all.append(Event(event['summary'],
+            all.append(Event(summary,
                              is_allday(start_time),
                              unix_time,
                              end_time,
