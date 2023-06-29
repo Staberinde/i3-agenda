@@ -1,7 +1,7 @@
 import os
 from os.path import expanduser
 import argparse
-from const import *
+from i3_agenda.const import *
 
 
 

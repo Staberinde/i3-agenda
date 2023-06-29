@@ -5,7 +5,7 @@ import time
 from freezegun import freeze_time
 import pytest
 
-from event import *
+from i3_agenda.event import *
 
 
 os.environ['TZ'] = 'UTC'
